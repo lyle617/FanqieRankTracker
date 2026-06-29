@@ -186,7 +186,7 @@ def build_ai_prompt(cat_name: str, cat: dict, trend: dict) -> str:
     fallers = trend.get("top_fallers", [])
     fallers_text = "、".join(f"《{f['title']}》{f['change']}" for f in fallers) if fallers else "无"
 
-    return f"""你是一位网文行业分析师。请根据以下数据，为番茄小说「{cat_name}」分类新书榜生成结构化分析。
+    return f"""你是一位网文行业分析师。请根据以下数据，为番茄小说男频「{cat_name}」分类新书榜生成结构化分析。
 
 ## 当前榜单 Top 20
 {intros_text}
@@ -200,10 +200,10 @@ def build_ai_prompt(cat_name: str, cat: dict, trend: dict) -> str:
 ## 输出要求（请严格按以下格式输出，使用 Markdown）
 
 **🔥 题材趋势**
-用1-2句话总结当前分类的主流题材和高频元素（如穿书/重生/系统/种田等），点明哪些设定扎堆出现。
+用1-2句话总结当前分类的主流题材和高频元素（如开局/系统/觉醒/穿越/重生等），点明哪些设定扎堆出现。
 
 **📖 读者偏好**
-用1句话概括读者口味方向（甜宠/虐/爽/日常/暗黑等），以及金手指类型偏好。
+用1句话概括读者口味方向（爽文/热血/轻松/暗黑/日常等），以及金手指类型偏好。
 
 **🆕 新上榜作品**
 列出新上榜书名，每本用一句话点评其题材亮点或差异化卖点。
@@ -222,22 +222,26 @@ BATCH_SIZE = 3  # 每批合并的分类数
 MARKET_PERIODS = [("7", 7), ("14", 14), ("30", 30), ("all", None)]
 
 GENRE_GROUPS = [
-    {"name": "古风言情", "categories": ["古风世情", "古言脑洞", "宫斗宅斗", "种田"]},
-    {"name": "现代言情", "categories": ["现言脑洞", "豪门总裁", "职场婚恋", "青春甜宠"]},
-    {"name": "幻想言情", "categories": ["玄幻言情", "科幻末世", "悬疑脑洞", "女频悬疑"]},
-    {"name": "快穿衍生", "categories": ["快穿", "女频衍生"]},
-    {"name": "年代民国", "categories": ["年代", "民国言情"]},
-    {"name": "娱乐星光", "categories": ["星光璀璨"]},
+    {"name": "玄幻仙侠", "categories": ["传统玄幻", "玄幻脑洞", "东方仙侠", "西方奇幻"]},
+    {"name": "都市现实", "categories": ["都市日常", "都市修真", "都市高武", "都市种田", "都市脑洞"]},
+    {"name": "历史军事", "categories": ["历史古代", "历史脑洞", "抗战谍战"]},
+    {"name": "悬疑灵异", "categories": ["悬疑脑洞", "悬疑灵异"]},
+    {"name": "科幻末世", "categories": ["科幻末世"]},
+    {"name": "战神赘婿", "categories": ["战神赘婿"]},
     {"name": "游戏体育", "categories": ["游戏体育"]},
+    {"name": "动漫衍生", "categories": ["动漫衍生", "男频衍生"]},
 ]
 
 MARKET_KEYWORDS = [
-    "重生", "穿书", "快穿", "系统", "空间", "团宠", "萌宝", "幼崽", "女配", "炮灰",
-    "反派", "权臣", "宅斗", "宫斗", "和离", "替嫁", "逃荒", "种田", "美食", "经商",
-    "年代", "七零", "八零", "军婚", "豪门", "总裁", "真假千金", "先婚后爱", "追妻",
-    "甜宠", "双洁", "强制爱", "无CP", "末世", "废土", "天灾", "囤货", "异能",
-    "国运", "星际", "修仙", "玄学", "无限流", "悬疑", "直播", "综艺", "娱乐圈",
-    "校园", "暗恋", "青梅竹马", "民国", "兽世", "远古", "基建",
+    "穿越", "系统", "开局", "觉醒", "重生", "天赋", "降临", "求生", "全民",
+    "副本", "属性", "面板", "签到", "推演", "升级", "修炼", "修仙", "功法", "灵根",
+    "无敌", "逆袭", "打脸", "爽文", "神级", "最强", "至尊", "顶级",
+    "赘婿", "战神", "兵王", "神医", "总裁", "校花", "女神", "老婆", "千金",
+    "玄幻", "洪荒", "都市", "历史", "三国", "大唐", "大明", "皇帝", "年代", "四合院",
+    "抗战", "谍战", "军旅", "悬疑", "灵异", "盗墓", "无限流",
+    "末世", "废土", "天灾", "囤货", "入侵", "怪物", "全球",
+    "游戏", "直播", "曝光", "娱乐圈", "病娇",
+    "动漫", "衍生",
 ]
 
 
@@ -311,7 +315,7 @@ def build_batch_ai_prompt(batch: list) -> str:
 
     return (
         f"你是一位网文行业分析师。请根据以下数据，"
-        f"为番茄小说的多个分类新书榜分别生成结构化分析。\n\n"
+        f"为番茄小说男频的多个分类新书榜分别生成结构化分析。\n\n"
         f"{all_sections}\n\n"
         f"## 输出要求\n\n"
         f"请严格按照以下格式，为每个分类分别输出分析。"
@@ -711,7 +715,7 @@ def build_market_ai_prompt(payload: dict) -> str:
             f"- 规则兜底: {data['fallback_summary']}"
         )
 
-    return f"""你是一位网文市场编辑，请根据番茄女频新书榜的统计结果，为每个周期生成一段全站热点判断。
+    return f"""你是一位网文市场编辑，请根据番茄男频新书榜的统计结果，为每个周期生成一段全站热点判断。
 
 {chr(10).join(sections)}
 
@@ -960,7 +964,7 @@ def main():
 
     # 查找 JSON 快照文件
     snapshots = sorted(
-        glob.glob(os.path.join(data_dir, "fanqie_female_new_ranks_*.json"))
+        glob.glob(os.path.join(data_dir, "fanqie_male_new_ranks_*.json"))
     )
 
     if not snapshots:
@@ -971,7 +975,7 @@ def main():
     if args.date:
         target_date_compact = args.date.replace("-", "")
         target_path = os.path.join(
-            data_dir, f"fanqie_female_new_ranks_{target_date_compact}.json"
+            data_dir, f"fanqie_male_new_ranks_{target_date_compact}.json"
         )
         if not os.path.exists(target_path):
             print(f"❌ 未找到 {args.date} 的快照文件: {target_path}")
@@ -1112,7 +1116,7 @@ def main():
     date_list = []
     for s in snapshots:
         fname = os.path.basename(s)
-        # fanqie_female_new_ranks_YYYYMMDD.json -> YYYY-MM-DD
+        # fanqie_male_new_ranks_YYYYMMDD.json -> YYYY-MM-DD
         m = re.search(r"(\d{4})(\d{2})(\d{2})", fname)
         if m:
             date_list.append(f"{m.group(1)}-{m.group(2)}-{m.group(3)}")

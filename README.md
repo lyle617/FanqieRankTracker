@@ -2,7 +2,7 @@
 
 [![English](https://img.shields.io/badge/lang-English-blue)](README_EN.md)
 
-> 👗 专注于**番茄小说女频新书榜**，每日自动追踪排行数据并结合 AI 生成趋势分析，部署为精美的在线看板。
+> 👗 专注于**番茄小说男频新书榜**，每日自动追踪排行数据并结合 AI 生成趋势分析，部署为精美的在线看板。
 
 ---
 
@@ -135,7 +135,7 @@ FanqieRankTracker/
 ├── scripts/
 │   └── build_latest.py         # 趋势对比 + AI 分析构建脚本
 ├── data/
-│   ├── fanqie_female_new_ranks_YYYYMMDD.json  # 每日原始快照
+│   ├── fanqie_male_new_ranks_YYYYMMDD.json  # 每日原始快照
 │   ├── latest_ranks.json       # 最新聚合数据（看板数据源）
 │   ├── market_summary.json     # 全站热点 AI/规则总结
 │   └── trends/

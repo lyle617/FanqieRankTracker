@@ -1,19 +1,8 @@
 {
   "date": "2026-06-29",
-  "prev_date": "",
   "categories": [
     {
       "name": "西方奇幻",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "龙骑士：开局被自己的银龙反骑",
@@ -179,16 +168,6 @@
     },
     {
       "name": "东方仙侠",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "零帧起手，圣人来了也照打！",
@@ -354,16 +333,6 @@
     },
     {
       "name": "科幻末世",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "小区求生：每人每天给我一块面包",
@@ -529,16 +498,6 @@
     },
     {
       "name": "都市日常",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "刚上大学，睡出了个绝美教授老婆",
@@ -704,16 +663,6 @@
     },
     {
       "name": "都市修真",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "僵尸世界：开局拜师雷电法王",
@@ -879,16 +828,6 @@
     },
     {
       "name": "都市高武",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "我才三岁，怎么会是灭世级灾厄",
@@ -1054,16 +993,6 @@
     },
     {
       "name": "历史古代",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "大唐长生者，但开局在玄武门？",
@@ -1229,16 +1158,6 @@
     },
     {
       "name": "战神赘婿",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "入赘三年，神医身份瞒不住了",
@@ -1404,16 +1323,6 @@
     },
     {
       "name": "都市种田",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "年代1959，我蹬三轮咋的啦？",
@@ -1579,16 +1488,6 @@
     },
     {
       "name": "传统玄幻",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "开局法相，未婚妻不退婚",
@@ -1754,16 +1653,6 @@
     },
     {
       "name": "历史脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "亲爹战死五年归来后，我随母改嫁",
@@ -1929,16 +1818,6 @@
     },
     {
       "name": "悬疑脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "我创立的组织，被重生者曝光了！",
@@ -2104,16 +1983,6 @@
     },
     {
       "name": "都市脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "什么叫高考满分，但人失踪了？",
@@ -2279,16 +2148,6 @@
     },
     {
       "name": "玄幻脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "绣球你都接了，还说不是我相公？",
@@ -2454,16 +2313,6 @@
     },
     {
       "name": "悬疑灵异",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "从红溪村开始的僵尸生活",
@@ -2629,16 +2478,6 @@
     },
     {
       "name": "抗战谍战",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "小萝卜头舔包肥到四九城",
@@ -2804,16 +2643,6 @@
     },
     {
       "name": "游戏体育",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "带C罗横扫美加墨世界杯！",
@@ -2979,16 +2808,6 @@
     },
     {
       "name": "动漫衍生",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "崩铁，死了47次后，我决定去卖",
@@ -3154,16 +2973,6 @@
     },
     {
       "name": "男频衍生",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "首日数据，暂无趋势对比。"
-      },
       "books": [
         {
           "title": "四合院：满级人脉，全院都慌了！",
