@@ -1,42 +1,326 @@
 {
-  "date": "2026-06-29",
-  "prev_date": "",
+  "date": "2026-06-30",
+  "prev_date": "2026-06-29",
   "periods": {
     "7": {
       "period": "近 7 日",
-      "source": "ai",
-      "summary": "近7日番茄男频新书榜数据样本不足，无法从新增在读和阅读增长量维度判断综合赛道及具体分类热点。同期新上榜作品数量未形成有效统计，缺乏高频题材关键词。编辑判断：当前周期数据暂未呈现明确趋势，建议观察后续更新。",
+      "source": "rule",
+      "summary": "近 7 日暂无足够数据判断全站热点。",
       "fallback_summary": "近 7 日暂无足够数据判断全站热点。",
       "hot_genres": [],
       "hot_types": [],
-      "hot_themes": []
+      "hot_themes": [
+        {
+          "name": "穿越",
+          "count": 8,
+          "category_count": 8
+        },
+        {
+          "name": "系统",
+          "count": 7,
+          "category_count": 6
+        },
+        {
+          "name": "开局",
+          "count": 6,
+          "category_count": 6
+        },
+        {
+          "name": "觉醒",
+          "count": 5,
+          "category_count": 5
+        },
+        {
+          "name": "重生",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "怪物",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "直播",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "年代",
+          "count": 2,
+          "category_count": 1
+        },
+        {
+          "name": "天赋",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "降临",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "升级",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "修仙",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "无敌",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "爽文",
+          "count": 1,
+          "category_count": 1
+        }
+      ]
     },
     "14": {
       "period": "近 14 日",
-      "source": "ai",
-      "summary": "近14日番茄男频新书榜缺乏足够数据，综合赛道与具体分类均未观察到显著的阅读增长量变化。新上榜作品数量稀少，未能形成高频题材趋势。编辑判断：平台新书热度分布较为平缓，暂无突出类型引领市场。",
+      "source": "rule",
+      "summary": "近 14 日暂无足够数据判断全站热点。",
       "fallback_summary": "近 14 日暂无足够数据判断全站热点。",
       "hot_genres": [],
       "hot_types": [],
-      "hot_themes": []
+      "hot_themes": [
+        {
+          "name": "穿越",
+          "count": 8,
+          "category_count": 8
+        },
+        {
+          "name": "系统",
+          "count": 7,
+          "category_count": 6
+        },
+        {
+          "name": "开局",
+          "count": 6,
+          "category_count": 6
+        },
+        {
+          "name": "觉醒",
+          "count": 5,
+          "category_count": 5
+        },
+        {
+          "name": "重生",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "怪物",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "直播",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "年代",
+          "count": 2,
+          "category_count": 1
+        },
+        {
+          "name": "天赋",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "降临",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "升级",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "修仙",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "无敌",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "爽文",
+          "count": 1,
+          "category_count": 1
+        }
+      ]
     },
     "30": {
       "period": "近 30 日",
-      "source": "ai",
-      "summary": "近30日番茄男频新书榜统计期内，综合赛道与具体分类均未出现明显的新增在读或阅读增长量集中趋势。新上榜作品数量不足，无法提炼出具有代表性的高频题材。编辑判断：市场处于新老题材平稳过渡阶段，缺乏爆发式新热点。",
+      "source": "rule",
+      "summary": "近 30 日暂无足够数据判断全站热点。",
       "fallback_summary": "近 30 日暂无足够数据判断全站热点。",
       "hot_genres": [],
       "hot_types": [],
-      "hot_themes": []
+      "hot_themes": [
+        {
+          "name": "穿越",
+          "count": 8,
+          "category_count": 8
+        },
+        {
+          "name": "系统",
+          "count": 7,
+          "category_count": 6
+        },
+        {
+          "name": "开局",
+          "count": 6,
+          "category_count": 6
+        },
+        {
+          "name": "觉醒",
+          "count": 5,
+          "category_count": 5
+        },
+        {
+          "name": "重生",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "怪物",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "直播",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "年代",
+          "count": 2,
+          "category_count": 1
+        },
+        {
+          "name": "天赋",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "降临",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "升级",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "修仙",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "无敌",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "爽文",
+          "count": 1,
+          "category_count": 1
+        }
+      ]
     },
     "all": {
       "period": "全部样本",
-      "source": "ai",
-      "summary": "基于全部样本分析，番茄男频新书榜暂未呈现出驱动综合赛道或具体分类阅读增长的主导方向。新上榜作品数量未达到有效统计门槛，高频题材关键词缺失。编辑判断：长期数据表明平台当前热点较为分散，需结合实时动态监测市场变化。",
+      "source": "rule",
+      "summary": "全部样本暂无足够数据判断全站热点。",
       "fallback_summary": "全部样本暂无足够数据判断全站热点。",
       "hot_genres": [],
       "hot_types": [],
-      "hot_themes": []
+      "hot_themes": [
+        {
+          "name": "穿越",
+          "count": 8,
+          "category_count": 8
+        },
+        {
+          "name": "系统",
+          "count": 7,
+          "category_count": 6
+        },
+        {
+          "name": "开局",
+          "count": 6,
+          "category_count": 6
+        },
+        {
+          "name": "觉醒",
+          "count": 5,
+          "category_count": 5
+        },
+        {
+          "name": "重生",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "怪物",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "直播",
+          "count": 2,
+          "category_count": 2
+        },
+        {
+          "name": "年代",
+          "count": 2,
+          "category_count": 1
+        },
+        {
+          "name": "天赋",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "降临",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "升级",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "修仙",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "无敌",
+          "count": 1,
+          "category_count": 1
+        },
+        {
+          "name": "爽文",
+          "count": 1,
+          "category_count": 1
+        }
+      ]
     }
   }
 }
