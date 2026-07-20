@@ -61,6 +61,12 @@ jobs:
       env:
         GITHUB_ACTIONS: true
 
+    - name: Fetch Chapter Content (都市高武+都市脑洞 Top20)
+      if: steps.check_data.outputs.exists == 'false'
+      run: python fetch_category_chapters.py --categories 都市高武 都市脑洞 --top 20 --chapters 10
+      env:
+        GITHUB_ACTIONS: true
+
     - name: Build Latest Data with AI Summary
       run: pip install openai && python scripts/build_latest.py
       env:
