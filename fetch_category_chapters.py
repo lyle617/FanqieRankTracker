@@ -139,20 +139,84 @@ def is_book_complete(book_dir, max_chapters):
     return True
 
 
+def get_existing_book_ids(cat_dir):
+    """扫描已有目录，通过meta.json或汇总文件提取已采集的bookId"""
+    existing_ids = set()
+    if not os.path.exists(cat_dir):
+        return existing_ids
+
+    for d in os.listdir(cat_dir):
+        book_dir = os.path.join(cat_dir, d)
+        if not os.path.isdir(book_dir):
+            continue
+
+        # 优先从meta.json读取bookId
+        meta_file = os.path.join(book_dir, "meta.json")
+        if os.path.exists(meta_file):
+            try:
+                with open(meta_file, 'r', encoding='utf-8') as fh:
+                    meta = json.load(fh)
+                if "bookId" in meta:
+                    existing_ids.add(meta["bookId"])
+                    continue
+            except:
+                pass
+
+        # 从汇总文件读取bookId（目录级汇总）
+        if d.startswith("Top"):
+            for f in os.listdir(book_dir):
+                if f.endswith(".json") and f not in ("chapters.json", "meta.json"):
+                    try:
+                        with open(os.path.join(book_dir, f), 'r', encoding='utf-8') as fh:
+                            data = json.load(fh)
+                        if isinstance(data, dict) and "bookId" in data:
+                            existing_ids.add(data["bookId"])
+                    except:
+                        pass
+
+    # 也检查分类级汇总文件
+    for f in os.listdir(cat_dir):
+        if f.endswith("_complete.json"):
+            try:
+                with open(os.path.join(cat_dir, f), 'r', encoding='utf-8') as fh:
+                    data = json.load(fh)
+                if isinstance(data, list):
+                    for item in data:
+                        if isinstance(item, dict) and "bookId" in item:
+                            existing_ids.add(item["bookId"])
+            except:
+                pass
+
+    return existing_ids
+
+
 def fetch_category(category_name, books, output_base, max_chapters=10, max_content_chars=5000, force=False):
     """采集单个分类（每个线程独立的浏览器实例）"""
     cat_dir = os.path.join(output_base, category_name)
     os.makedirs(cat_dir, exist_ok=True)
 
-    # 过滤已完成的书籍
+    # 扫描已有bookId（基于bookId去重，避免排名变化导致重复采集）
+    existing_ids = set() if force else get_existing_book_ids(cat_dir)
+    if existing_ids:
+        print(f"[{category_name}] 已有 {len(existing_ids)} 本书的bookId记录")
+
+    # 过滤已完成的书籍（优先用bookId匹配，其次用目录名匹配）
     books_to_fetch = []
     for book in books:
         safe_title = book['title'][:25].replace('/', '_').replace('\\', '_')
         book_dir = os.path.join(cat_dir, f"Top{book['rank']}_{safe_title}")
-        if not force and is_book_complete(book_dir, max_chapters):
-            print(f"[{category_name}] [{book['rank']}/{len(books)}] ⏭️ 已完成，跳过: {book['title']}")
-        else:
-            books_to_fetch.append(book)
+
+        # bookId已在已有记录中，跳过
+        if book['bookId'] in existing_ids:
+            print(f"[{category_name}] [{book['rank']}/{len(books)}] ⏭️ bookId已存在，跳过: {book['title']}")
+            continue
+
+        # 目录存在且内容完整，跳过
+        if is_book_complete(book_dir, max_chapters):
+            print(f"[{category_name}] [{book['rank']}/{len(books)}] ⏭️ 目录已完整，跳过: {book['title']}")
+            continue
+
+        books_to_fetch.append(book)
 
     if not books_to_fetch:
         print(f"[{category_name}] 所有书籍已完成采集，无需重新抓取")
@@ -222,6 +286,10 @@ def fetch_category(category_name, books, output_base, max_chapters=10, max_conte
 
             with open(os.path.join(book_dir, "chapters.json"), 'w', encoding='utf-8') as f:
                 json.dump(chapters, f, ensure_ascii=False, indent=2)
+
+            # 保存bookId元数据（用于去重）
+            with open(os.path.join(book_dir, "meta.json"), 'w', encoding='utf-8') as f:
+                json.dump({"bookId": book_id, "rank": rank, "title": title}, f, ensure_ascii=False)
 
             for i, ch_data in enumerate(chapter_contents):
                 with open(os.path.join(book_dir, f"chapter_{i+1}.txt"), 'w', encoding='utf-8') as f:
