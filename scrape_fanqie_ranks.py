@@ -1,8 +1,12 @@
 import os
 import json
 import time
+import argparse
 from datetime import datetime
+from pathlib import Path
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError, sync_playwright
+
+from fanqie_datasets import get_dataset_config
 
 START_CODE = 58344  # 0xE3E8
 CHAR_SEQUENCE = [
@@ -24,7 +28,8 @@ def decode_text(text: str) -> str:
 
 # 我们将直接从页面解析所有新书榜类别目录，实现动态抓取
 
-OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+PROJECT_DIR = Path(__file__).resolve().parent
+OUTPUT_DIR = str(PROJECT_DIR / "data")
 
 def open_rank_page(page, url):
     for attempt in range(3):
@@ -38,17 +43,19 @@ def open_rank_page(page, url):
             print(f"榜单首页加载超时，5 秒后重试 ({attempt + 1}/3)")
             time.sleep(5)
 
-def run_scraper(limit=30, sleep_sec=5):
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+def run_scraper(limit=30, sleep_sec=5, dataset="male", output_dir=None):
+    config = get_dataset_config(dataset)
+    output_root = Path(output_dir) if output_dir else PROJECT_DIR / config["data_dir"]
+    output_root.mkdir(parents=True, exist_ok=True)
     date_str = datetime.now().strftime("%Y%m%d")
-    output_file = os.path.join(OUTPUT_DIR, f"fanqie_male_new_ranks_{date_str}.json")
-    state_file = os.path.join(OUTPUT_DIR, f"task_state_{date_str}.json")
+    output_file = output_root / f"{config['snapshot_prefix']}{date_str}.json"
+    state_file = output_root / f"task_state_{date_str}.json"
     
     # ------------- 状态恢复逻辑 -------------
     completed_cats = []
     all_categories = []  # 收集所有分类数据
     if os.path.exists(state_file):
-        with open(state_file, "r", encoding="utf-8") as f:
+        with state_file.open("r", encoding="utf-8") as f:
             try:
                 state = json.load(f)
                 completed_cats = state.get("completed", [])
@@ -56,7 +63,7 @@ def run_scraper(limit=30, sleep_sec=5):
                 pass
     # 如果有中断恢复的数据，先加载已有的 JSON
     if os.path.exists(output_file) and len(completed_cats) > 0:
-        with open(output_file, "r", encoding="utf-8") as f:
+        with output_file.open("r", encoding="utf-8") as f:
             try:
                 existing = json.load(f)
                 all_categories = existing.get("categories", [])
@@ -76,21 +83,23 @@ def run_scraper(limit=30, sleep_sec=5):
         page = context.new_page()
         
         # 先访问新书榜的基准前缀页面，以此为入口模拟人工作业
-        init_url = "https://fanqienovel.com/rank/1_1_1141"
+        init_url = config["rank_url"]
         print(f"[{datetime.now().strftime('%H:%M:%S')}] 正在初始化并访问基础榜单页：{init_url}")
         open_rank_page(page, init_url)
         
         # 动态解析页面左侧拥有的所有类别目录 (通过匹配对应的榜单路由规律)
+        category_prefix = config["category_prefix"]
         categories_js = """
         () => {
             return Array.from(document.querySelectorAll('a'))
-                .filter(a => a.href.includes('/rank/1_1_'))
+                .filter(a => a.href.includes('__CATEGORY_PREFIX__'))
                 .map(a => ({
                     name: a.innerText.trim(),
                     href: a.getAttribute('href')
                 }));
         }
         """
+        categories_js = categories_js.replace("__CATEGORY_PREFIX__", category_prefix)
         categories = page.evaluate(categories_js)
         print(f"✅ 成功自适应提取到 {len(categories)} 个分类标签。开始全量模拟点击抓取下级数据...")
         
@@ -234,12 +243,12 @@ def run_scraper(limit=30, sleep_sec=5):
                 "date": datetime.now().strftime('%Y-%m-%d'),
                 "categories": all_categories
             }
-            with open(output_file, 'w', encoding='utf-8') as f:
+            with output_file.open('w', encoding='utf-8') as f:
                 json.dump(snapshot, f, ensure_ascii=False, indent=2)
             
             # 更新状态记录
             completed_cats.append(cat_name)
-            with open(state_file, "w", encoding="utf-8") as f:
+            with state_file.open("w", encoding="utf-8") as f:
                 json.dump({"completed": completed_cats}, f, ensure_ascii=False)
                 
             print(f"成功抓取 {cat_name} 类别的前 {len(category_books)} 本书，且进度已存档。等待 {sleep_sec} 秒防拦截...")
@@ -249,8 +258,18 @@ def run_scraper(limit=30, sleep_sec=5):
         
         browser.close()
         
-    print(f"\n✅ 当日选定类目任务已完毕或刷新！数据源：{output_file}")
+    print(f"\n✅ {config['label']}当日选定类目任务已完毕或刷新！数据源：{output_file}")
 
 if __name__ == "__main__":
-    print("开始执行番茄男频新书榜抓取计划...")
-    run_scraper(limit=30, sleep_sec=5)
+    parser = argparse.ArgumentParser(description="抓取番茄男频或女频新书榜")
+    parser.add_argument("--dataset", choices=("male", "female"), default="male")
+    parser.add_argument("--limit", type=int, default=30)
+    parser.add_argument("--sleep-sec", type=float, default=5)
+    args = parser.parse_args()
+    config = get_dataset_config(args.dataset)
+    print(f"开始执行番茄{config['label']}新书榜抓取计划...")
+    run_scraper(
+        limit=args.limit,
+        sleep_sec=args.sleep_sec,
+        dataset=args.dataset,
+    )
