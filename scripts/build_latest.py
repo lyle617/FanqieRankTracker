@@ -15,6 +15,12 @@ from pathlib import Path
 from typing import Optional
 from urllib.parse import quote
 
+# Allow both `python scripts/build_latest.py` and `python -m scripts.build_latest`
+# to import the shared configuration from the repository root.
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+if str(PROJECT_DIR) not in sys.path:
+    sys.path.insert(0, str(PROJECT_DIR))
+
 from fanqie_datasets import get_dataset_config
 
 
