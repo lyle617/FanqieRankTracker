@@ -10,12 +10,12 @@
 
 | 功能 | 说明 |
 |------|------|
-| 🕷️ 自动爬取 | 每日定时抓取番茄女性频道各个分类的新书榜 Top 30 |
+| 🕷️ 自动爬取 | 每日定时抓取番茄男频和女频各分类新书榜 Top 30 |
 | 📊 趋势对比 | 自动对比相邻两天数据：新上榜 / 掉榜 / 排名变化 / 阅读量增长 |
 | 🤖 AI 风向分析 | 接入 OpenAI 兼容 API，按分类生成市场趋势速评 |
 | 🧭 类型风向标 | 独立趋势页聚合多日数据，用 AI 总结古风言情等综合赛道、具体热门分类和高频题材；未配置 API 时自动规则兜底 |
 | 📚 短篇推荐 | 访问时按 99 个题材标签实时读取短故事，展示封面、摘要、阅读时长和互动数据，不落盘推荐内容 |
-| 🖥️ 精美看板 | 暗色编辑风格仪表盘，带打字机动画和瀑布流书籍卡片 |
+| 🖥️ 精美看板 | 暗色编辑风格仪表盘，可切换男频/女频，带打字机动画和瀑布流书籍卡片 |
 | 📱 移动适配 | 完整的移动端适配，侧边栏抽屉式菜单 |
 | 🔌 数据接口 | 生成静态 `lastest` JSON 接口，可按类型读取最新数据 |
 | ⚡ 全自动化 | GitHub Actions + GitHub Pages，零服务器运维 |
@@ -62,11 +62,11 @@
 2. 点击右上角 **Run workflow** → **Run workflow**
 3. 等待 Workflow 运行完成（约 3–5 分钟）
 
-运行成功后，`data/` 目录下会自动生成数据文件，打开 GitHub Pages 链接即可看到看板。
+运行成功后，`data/` 目录下会分别生成男频和女频数据文件，打开 GitHub Pages 链接即可通过顶部切换器查看两套榜单。
 
 ### 第五步：坐等自动更新
 
-GitHub Actions 已配置为 **每天 UTC 00:00（北京时间 08:00）** 自动运行。之后无需任何手动操作，数据和看板会每天自动更新。
+GitHub Actions 已配置为 **每天 UTC 00:00（北京时间 08:00）** 自动运行，依次抓取男频和女频并一次性发布。之后无需任何手动操作，数据和看板会每天自动更新。
 
 看板右上角的 **风向标** 可进入 `trend.html`，先查看当下火热综合赛道（如古风言情）、具体热门分类和高频题材，再按具体类型查看近 7 / 14 / 30 日或全部周期的趋势分析。全站热点会优先使用 AI 总结，未配置 API 或生成失败时使用规则统计文案兜底。
 
@@ -81,12 +81,14 @@ GitHub Actions 已配置为 **每天 UTC 00:00（北京时间 08:00）** 自动�
 | 类型索引 | `api/lastest.json` | 返回所有可用类型及对应 URL |
 | 全量数据 | `api/lastest/all.json` | `type=all`，返回全部分类、趋势和书籍 |
 | 单类型数据 | `api/lastest/<类型>.json` | 返回指定类型的数据，例如 `api/lastest/古风世情.json` |
+| 女频全量数据 | `api/female/lastest/all.json` | 女频全量榜单和趋势 |
 
 示例：
 
 ```bash
 curl https://<你的用户名>.github.io/FanqieRankTracker/api/lastest/all.json
 curl https://<你的用户名>.github.io/FanqieRankTracker/api/lastest/古风世情.json
+curl https://<你的用户名>.github.io/FanqieRankTracker/api/female/lastest/all.json
 ```
 
 ---
@@ -141,8 +143,11 @@ FanqieRankTracker/
 │   ├── market_summary.json     # 全站热点 AI/规则总结
 │   └── trends/
 │       └── YYYY-MM-DD.json     # 趋势归档
+├── data/female/                 # 女频快照、聚合数据和趋势
+├── data/datasets.json           # 前端数据集路径配置
 ├── api/
-│   └── lastest/                # 最新数据静态接口（all + 按类型拆分）
+│   ├── lastest/                 # 男频静态接口
+│   └── female/lastest/          # 女频静态接口
 ├── index.html                  # 仪表盘入口页
 ├── trend.html                  # 类型风向标趋势分析页
 ├── shorts.html                 # 短篇推荐页
@@ -161,7 +166,7 @@ FanqieRankTracker/
 │                                                             │
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐  │
 │  │  Playwright   │───▶│  build_latest │───▶│  git commit  │  │
-│  │  爬取榜单数据  │    │  趋势对比      │    │  自动提交     │  │
+│  │ 男/女频抓取   │    │  分数据集构建  │    │  一次发布     │  │
 │  │              │    │  + AI 分析     │    │  到 main     │  │
 │  └──────────────┘    └──────────────┘    └──────────────┘  │
 │                                                             │
@@ -171,6 +176,8 @@ FanqieRankTracker/
                     GitHub Pages 自动部署
                     用户访问在线看板 🌐
 ```
+
+首页顶部可切换男频和女频；`shorts.html` 提供独立的短篇推荐页面。
 
 ---
 

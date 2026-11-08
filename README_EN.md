@@ -10,10 +10,11 @@
 
 | Feature | Description |
 |---------|-------------|
-| 🕷️ Auto Scraping | Daily automated scraping of Top 30 new books across all sub-categories within Fanqie's Female section |
+| 🕷️ Auto Scraping | Daily automated scraping of Top 30 new books across Fanqie's male and female categories |
 | 📊 Trend Analysis | Automatic day-over-day comparison: new entries / dropped / rank changes / readership growth |
 | 🤖 AI Summary | OpenAI-compatible API integration for per-category market trend analysis |
-| 🖥️ Dashboard | Dark editorial-style dashboard with typewriter animation and waterfall book cards |
+| 🖥️ Dashboard | Dark editorial-style dashboard with a male/female dataset switcher, typewriter animation and waterfall book cards |
+| 📚 Short Stories | Browse short-story recommendations by topic with reading and engagement metrics |
 | 📱 Responsive | Full mobile support with slide-out sidebar menu |
 | ⚡ Fully Automated | GitHub Actions + GitHub Pages, zero server maintenance |
 
@@ -59,11 +60,11 @@ Go to repo → **Settings** → **Secrets and variables** → **Actions** → **
 2. Click **Run workflow** → **Run workflow** on the top-right
 3. Wait for the workflow to complete (~3–5 minutes)
 
-After a successful run, data files will be generated in the `data/` directory. Open the GitHub Pages link to view your dashboard.
+After a successful run, separate male and female data files will be generated under `data/`. Open the GitHub Pages link and use the dataset switcher to view either dashboard.
 
 ### Step 5: Sit Back and Relax
 
-GitHub Actions is configured to run automatically at **UTC 00:00 (08:00 Beijing Time)** every day. No further manual action is needed — data and dashboard will auto-update daily.
+GitHub Actions runs automatically at **UTC 00:00 (08:00 Beijing Time)** every day, publishing both datasets in one run. No further manual action is needed — data and dashboards will auto-update daily.
 
 ---
 
