@@ -1,0 +1,796 @@
+{
+  "schema_version": 1,
+  "comparison": "recent_7d_vs_previous_23d",
+  "title_pattern_lift": [
+    {
+      "pattern": "反击反转",
+      "recent_share": 0.125,
+      "baseline_share": 0.104478,
+      "lift": 1.1964,
+      "recent_post_count": 9,
+      "examples": [
+        "流产后我不闹了，丈夫却疯了",
+        "嫡姐日日闹换夫，圣旨赐下后她悔疯了",
+        "同事卡号和我只差一位数？我火速销卡，3天后他傻眼",
+        "我言出法随后，全家疯了",
+        "青梅赌我不会闹，我让两家人看清了真相"
+      ]
+    },
+    {
+      "pattern": "重生穿越",
+      "recent_share": 0.069444,
+      "baseline_share": 0.059701,
+      "lift": 1.1632,
+      "recent_post_count": 5,
+      "examples": [
+        "寿司店说我6880元没付款，重生后我让他直接报警",
+        "穿成霸总文女主亲爹，谁换我孩子我灭谁",
+        "重生回同学聚会敬酒那晚，我先把她前任的酒换成白水",
+        "重生后我拼命躲她，全网都在看我跑路",
+        "竹马的准考证被换成情书，重生后我不管了"
+      ]
+    },
+    {
+      "pattern": "离开断联",
+      "recent_share": 0.083333,
+      "baseline_share": 0.074627,
+      "lift": 1.1167,
+      "recent_post_count": 6,
+      "examples": [
+        "净身出户的忠诚协议",
+        "全家自驾把我忘在服务区，我在高速上消失了",
+        "已经离婚的前妻在凌晨两点打电话说要分手",
+        "八周年礼物，是一份分手补偿",
+        "弹幕说我女儿是恶毒女配，我带她离开了军区大院"
+      ]
+    },
+    {
+      "pattern": "婚恋关系",
+      "recent_share": 0.208333,
+      "baseline_share": 0.313433,
+      "lift": 0.6647,
+      "recent_post_count": 15,
+      "examples": [
+        "孕八月出车祸，老公先救肇事者",
+        "流产后我不闹了，丈夫却疯了",
+        "把我钱全给妹结婚后，我移居海外，全家崩溃了",
+        "我不再等总裁老婆回家后，她辞退了男助理",
+        "已经离婚的前妻在凌晨两点打电话说要分手"
+      ]
+    },
+    {
+      "pattern": "职场利益",
+      "recent_share": 0.027778,
+      "baseline_share": 0.044776,
+      "lift": 0.6204,
+      "recent_post_count": 2,
+      "examples": [
+        "不能生？我娶。后来全公司都闭嘴了",
+        "同事卡号和我只差一位数？我火速销卡，3天后他傻眼"
+      ]
+    },
+    {
+      "pattern": "家庭矛盾",
+      "recent_share": 0.083333,
+      "baseline_share": 0.149254,
+      "lift": 0.5583,
+      "recent_post_count": 6,
+      "examples": [
+        "把我钱全给妹结婚后，我移居海外，全家崩溃了",
+        "全家自驾把我忘在服务区，我在高速上消失了",
+        "我言出法随后，全家疯了",
+        "带女儿跑路后，千亿总裁老婆急疯了",
+        "弹幕说我女儿是恶毒女配，我带她离开了军区大院"
+      ]
+    },
+    {
+      "pattern": "具体时间数字",
+      "recent_share": 0.083333,
+      "baseline_share": 0.223881,
+      "lift": 0.3722,
+      "recent_post_count": 6,
+      "examples": [
+        "孕八月出车祸，老公先救肇事者",
+        "亲子鉴定出来那天，我在办公室笑了三分钟",
+        "同事卡号和我只差一位数？我火速销卡，3天后他傻眼",
+        "离婚那天，妻子才知道我是她找了七年的救命恩人",
+        "未婚妻为发小弃婚，我亏十万退房南下造亿万帝国"
+      ]
+    }
+  ],
+  "tag_content_turnover_lift": [
+    {
+      "tag": "先虐后甜",
+      "recent_unique_posts_per_snapshot": 1.1538,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.3112,
+      "confidence": "high"
+    },
+    {
+      "tag": "历史",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "基建",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "女生生活",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "宫斗宅斗",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "校霸",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "现实生活",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "男生情感",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "真假千金",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "科幻",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "科幻末世",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "虐恋情深",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "赘婿",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 1.0198,
+      "confidence": "high"
+    },
+    {
+      "tag": "复仇",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 0.8646,
+      "confidence": "high"
+    },
+    {
+      "tag": "姐弟恋",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 0.8646,
+      "confidence": "high"
+    },
+    {
+      "tag": "娱乐圈",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 0.8646,
+      "confidence": "high"
+    },
+    {
+      "tag": "婚姻家庭",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 0.8646,
+      "confidence": "high"
+    },
+    {
+      "tag": "无限流",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 0.8646,
+      "confidence": "high"
+    },
+    {
+      "tag": "玄幻",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 0.8646,
+      "confidence": "high"
+    },
+    {
+      "tag": "破镜重圆",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 0.8646,
+      "confidence": "high"
+    },
+    {
+      "tag": "神医",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 0.8646,
+      "confidence": "high"
+    },
+    {
+      "tag": "职场",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 0.8646,
+      "confidence": "high"
+    },
+    {
+      "tag": "豪门世家",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 0.8646,
+      "confidence": "high"
+    },
+    {
+      "tag": "都市异能",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 0.88,
+      "lift": 0.8646,
+      "confidence": "high"
+    },
+    {
+      "tag": "古言虐恋",
+      "recent_unique_posts_per_snapshot": 0.9783,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.8004,
+      "confidence": "high"
+    },
+    {
+      "tag": "搞笑轻松",
+      "recent_unique_posts_per_snapshot": 0.9783,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.8004,
+      "confidence": "high"
+    },
+    {
+      "tag": "男频衍生",
+      "recent_unique_posts_per_snapshot": 0.9783,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.8004,
+      "confidence": "high"
+    },
+    {
+      "tag": "都市日常",
+      "recent_unique_posts_per_snapshot": 0.9783,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.8004,
+      "confidence": "high"
+    },
+    {
+      "tag": "系统",
+      "recent_unique_posts_per_snapshot": 0.9565,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.7826,
+      "confidence": "high"
+    },
+    {
+      "tag": "纯爱",
+      "recent_unique_posts_per_snapshot": 0.9783,
+      "baseline_unique_posts_per_snapshot": 1.28,
+      "lift": 0.7643,
+      "confidence": "high"
+    },
+    {
+      "tag": "权谋",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.08,
+      "lift": 0.7045,
+      "confidence": "high"
+    },
+    {
+      "tag": "暗恋",
+      "recent_unique_posts_per_snapshot": 0.8974,
+      "baseline_unique_posts_per_snapshot": 1.28,
+      "lift": 0.7011,
+      "confidence": "high"
+    },
+    {
+      "tag": "爽文",
+      "recent_unique_posts_per_snapshot": 0.7778,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6364,
+      "confidence": "high"
+    },
+    {
+      "tag": "虐文",
+      "recent_unique_posts_per_snapshot": 0.7778,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6364,
+      "confidence": "high"
+    },
+    {
+      "tag": "万人迷",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "仕途",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "养崽文",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "励志",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "十日衍生",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "升级流",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "历史古代",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "历史武侠",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "反转",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "古代言情",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "古言甜宠",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "同人",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "团宠",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "外卖",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "女性成长",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "女配",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "女频衍生",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "婆媳",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "年代",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "幻想言情",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "影视",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "悬疑",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "悬疑灵异",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "惊悚",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "打脸逆袭",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "推理",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "明星",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "末日求生",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "武侠",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "民国",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "沙雕搞笑",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "游戏动漫",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "热血",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "特种兵",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "犯罪",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "狼人",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "玄幻仙侠",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "现代",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "现实情感",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "现言复仇",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "现言甜宠",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "男生生活",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "病娇",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "直播",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "萌宝",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "虐心婚恋",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "规则怪谈",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "豪门总裁",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "追夫",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "追夫火葬场",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "追妻",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "追妻火葬场",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "都市脑洞",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "金手指",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "鉴宝",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "霸总",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "青春虐恋",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.2222,
+      "lift": 0.6225,
+      "confidence": "high"
+    },
+    {
+      "tag": "奶爸",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.28,
+      "lift": 0.5944,
+      "confidence": "high"
+    },
+    {
+      "tag": "先婚后爱",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.5,
+      "lift": 0.5072,
+      "confidence": "high"
+    },
+    {
+      "tag": "星际",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.5,
+      "lift": 0.5072,
+      "confidence": "high"
+    },
+    {
+      "tag": "架空",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.5,
+      "lift": 0.5072,
+      "confidence": "high"
+    },
+    {
+      "tag": "奇妙物语",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.7778,
+      "lift": 0.428,
+      "confidence": "high"
+    },
+    {
+      "tag": "救赎",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.7778,
+      "lift": 0.428,
+      "confidence": "high"
+    },
+    {
+      "tag": "校园",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 1.7778,
+      "lift": 0.428,
+      "confidence": "high"
+    },
+    {
+      "tag": "替身",
+      "recent_unique_posts_per_snapshot": 0.7609,
+      "baseline_unique_posts_per_snapshot": 2.3333,
+      "lift": 0.3261,
+      "confidence": "high"
+    }
+  ]
+}
