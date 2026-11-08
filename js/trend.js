@@ -10,17 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let marketSummaryData = null;
     let selectedCategory = '';
     let selectedDays = 7;
+    let datasetKey = 'male';
+    let datasetConfig = null;
 
-    const genreGroups = [
-        { name: '玄幻仙侠', categories: ['传统玄幻', '玄幻脑洞', '东方仙侠', '西方奇幻'] },
-        { name: '都市现实', categories: ['都市日常', '都市修真', '都市高武', '都市种田', '都市脑洞'] },
-        { name: '历史军事', categories: ['历史古代', '历史脑洞', '抗战谍战'] },
-        { name: '悬疑灵异', categories: ['悬疑脑洞', '悬疑灵异'] },
-        { name: '科幻末世', categories: ['科幻末世'] },
-        { name: '战神赘婿', categories: ['战神赘婿'] },
-        { name: '游戏体育', categories: ['游戏体育'] },
-        { name: '动漫衍生', categories: ['动漫衍生', '男频衍生'] },
-    ];
+    let genreGroups = [];
 
     const els = {
         marketSummary: document.getElementById('market-summary'),
@@ -38,12 +31,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function init() {
         try {
+            datasetConfig = await FanqieDatasets.load(
+                new URLSearchParams(window.location.search).get('dataset')
+            );
+            datasetKey = datasetConfig.key;
+            genreGroups = datasetConfig.genre_groups || [];
+            document.querySelectorAll('#dataset-switcher [data-dataset]').forEach(button => {
+                button.classList.toggle('active', button.dataset.dataset === datasetKey);
+                button.addEventListener('click', () => {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('dataset', button.dataset.dataset);
+                    window.location.href = url.toString();
+                });
+            });
+            document.title = `类型风向标 · 番茄${datasetConfig.label}新书榜趋势分析`;
+            document.querySelectorAll('a[href="index.html"]').forEach(link => {
+                link.href = `index.html?dataset=${encodeURIComponent(datasetKey)}`;
+            });
             const [dateIndex, latestIndex, latestAll, marketSummary] = await Promise.all([
-                fetchJson(`data/dates.json?${cacheBuster}`),
-                fetchJson(`api/lastest.json?${cacheBuster}`).catch(() => null),
-                fetchJson(`api/lastest/all.json?${cacheBuster}`)
-                    .catch(() => fetchJson(`data/latest_ranks.json?${cacheBuster}`)),
-                fetchJson(`data/market_summary.json?${cacheBuster}`).catch(() => null),
+                fetchJson(`${datasetConfig.dates}?${cacheBuster}`),
+                fetchJson(`${datasetConfig.api_index}?${cacheBuster}`).catch(() => null),
+                fetchJson(`${datasetConfig.api_all}?${cacheBuster}`)
+                    .catch(() => fetchJson(`${datasetConfig.latest}?${cacheBuster}`)),
+                fetchJson(`${datasetConfig.market}?${cacheBuster}`).catch(() => null),
             ]);
             latestData = latestAll;
             marketSummaryData = marketSummary;
@@ -55,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const dates = (dateIndex.dates || []).slice().sort();
             const trendDates = dates.slice(1);
             const trendFiles = await Promise.all(
-                trendDates.map(date => fetchJson(`data/trends/${date}.json?${cacheBuster}`).catch(() => null))
+                trendDates.map(date => fetchJson(`${datasetConfig.trends}/${date}.json?${cacheBuster}`).catch(() => null))
             );
             trendRows = trendFiles
                 .filter(Boolean)
@@ -78,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function loadCategoriesFallback() {
-        const latest = await fetchJson(`data/latest_ranks.json?${cacheBuster}`);
+        const latest = await fetchJson(`${datasetConfig.latest}?${cacheBuster}`);
         return (latest.categories || []).map(cat => cat.name);
     }
 

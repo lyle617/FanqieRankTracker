@@ -18,9 +18,43 @@ document.addEventListener('DOMContentLoaded', () => {
     let availableDates = [];   // sorted list of "YYYY-MM-DD"
     let currentDateIndex = -1; // index into availableDates
     let currentCategory = null; // preserve selected category across date switches
+    let datasetKey = 'male';
+    let datasetConfig = null;
 
     // Cache-busting: 每10分钟一个新key，避免浏览器缓存旧JSON
     const cacheBuster = `v=${Math.floor(Date.now() / 600000)}`;
+
+    async function initDataset() {
+        const requested = new URLSearchParams(window.location.search).get('dataset');
+        datasetConfig = await FanqieDatasets.load(requested);
+        datasetKey = datasetConfig.key;
+        document.querySelectorAll('#dataset-switcher [data-dataset]').forEach(button => {
+            button.classList.toggle('active', button.dataset.dataset === datasetKey);
+            button.addEventListener('click', () => {
+                const url = new URL(window.location.href);
+                url.searchParams.set('dataset', button.dataset.dataset);
+                window.location.href = url.toString();
+            });
+        });
+        const subtitle = document.querySelector('.sidebar-subtitle');
+        if (subtitle) subtitle.textContent = datasetConfig.subtitle;
+        document.title = `番茄${datasetConfig.label}新书榜 · 风向标 | 每日${datasetConfig.label}趋势追踪`;
+        document.querySelectorAll('a[href="trend.html"]').forEach(link => {
+            link.href = `trend.html?dataset=${encodeURIComponent(datasetKey)}`;
+        });
+    }
+
+    function datasetPath(path) {
+        return `${path}?${cacheBuster}`;
+    }
+
+    function datasetSnapshotUrl(dateStr) {
+        return `${datasetConfig.snapshot_dir}/${datasetConfig.snapshot_prefix}${dateStr.replace(/-/g, '')}.json?${cacheBuster}`;
+    }
+
+    function datasetTrendUrl(dateStr) {
+        return `${datasetConfig.trends}/${dateStr}.json?${cacheBuster}`;
+    }
 
     // ========== Copy Toast ==========
     const copyToast = document.createElement('div');
@@ -169,27 +203,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ========== Load dates index, then load latest ==========
-    fetch(`data/dates.json?${cacheBuster}`)
+    // ========== Load selected dataset, then its dates and latest data ==========
+    initDataset()
+        .then(() => fetch(datasetPath(datasetConfig.dates)))
         .then(r => r.ok ? r.json() : Promise.reject('No dates.json'))
         .then(idx => {
             availableDates = idx.dates || [];
             if (availableDates.length > 0) {
-                // Set min/max for native date input
                 dateInput.min = availableDates[0];
                 dateInput.max = availableDates[availableDates.length - 1];
             }
-            // Start by loading latest_ranks.json (already has trend data baked in)
             return loadLatestData();
         })
         .catch(() => {
-            // Fallback: no dates.json available, just load latest
             console.warn('dates.json not found, falling back to latest only');
-            loadLatestData();
+            if (datasetConfig) loadLatestData();
         });
 
     function loadLatestData() {
-        return fetch(`data/latest_ranks.json?${cacheBuster}`)
+        return fetch(datasetPath(datasetConfig.latest))
             .then(r => {
                 if (!r.ok) throw new Error('Network error');
                 return r.json();
@@ -214,8 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadDateData(dateStr) {
-        // dateStr = "YYYY-MM-DD", file = fanqie_male_new_ranks_YYYYMMDD.json
-        const fileDateStr = dateStr.replace(/-/g, '');
         const isLatest = currentDateIndex === availableDates.length - 1;
 
         if (isLatest) {
@@ -227,13 +257,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show loading state
         waterfall.innerHTML = '<p style="color:var(--text-muted);padding:20px;">加载中...</p>';
 
-        const snapshotUrl = `data/fanqie_male_new_ranks_${fileDateStr}.json?${cacheBuster}`;
-        const trendUrl = `data/trends/${dateStr}.json?${cacheBuster}`;
+        const snapshotPath = datasetSnapshotUrl(dateStr);
+        const trendPath = datasetTrendUrl(dateStr);
 
         // Load snapshot + trends in parallel
         Promise.all([
-            fetch(snapshotUrl).then(r => r.ok ? r.json() : Promise.reject('No snapshot')),
-            fetch(trendUrl).then(r => r.ok ? r.json() : null).catch(() => null)
+            fetch(snapshotPath).then(r => r.ok ? r.json() : Promise.reject('No snapshot')),
+            fetch(trendPath).then(r => r.ok ? r.json() : null).catch(() => null)
         ]).then(([snapshot, trendData]) => {
             // Build a data object in the same shape as latest_ranks.json
             const combined = {
@@ -448,7 +478,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const rank = index + 1;
             const card = document.createElement('a');
             const bookId = extractBookId(book.url);
-            card.href = bookId ? `book.html?id=${encodeURIComponent(bookId)}` : 'javascript:void(0)';
+            card.href = bookId
+                ? `book.html?id=${encodeURIComponent(bookId)}&dataset=${encodeURIComponent(datasetKey)}`
+                : 'javascript:void(0)';
             card.rel = 'noopener';
             card.className = 'book-card';
 

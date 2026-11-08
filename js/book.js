@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const detail = document.getElementById('book-detail');
     const cacheBuster = `v=${Math.floor(Date.now() / 600000)}`;
     const maxDays = 30;
+    let datasetConfig = null;
+    let datasetKey = 'male';
     const copyToast = document.createElement('div');
     copyToast.className = 'copy-toast';
     copyToast.textContent = '书本信息已复制';
@@ -20,7 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const dateIndex = await fetchJson(`data/dates.json?${cacheBuster}`);
+            datasetConfig = await FanqieDatasets.load(params.get('dataset'));
+            datasetKey = datasetConfig.key;
+            document.querySelectorAll('#dataset-switcher [data-dataset]').forEach(button => {
+                button.classList.toggle('active', button.dataset.dataset === datasetKey);
+                button.addEventListener('click', () => {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('dataset', button.dataset.dataset);
+                    window.location.href = url.toString();
+                });
+            });
+            document.title = `作品详情 · 番茄${datasetConfig.label}新书榜`;
+            document.querySelectorAll('a[href="index.html"]').forEach(link => {
+                link.href = `index.html?dataset=${encodeURIComponent(datasetKey)}`;
+            });
+            document.querySelectorAll('a[href="trend.html"]').forEach(link => {
+                link.href = `trend.html?dataset=${encodeURIComponent(datasetKey)}`;
+            });
+            const dateIndex = await fetchJson(`${datasetConfig.dates}?${cacheBuster}`);
             const dates = (dateIndex.dates || []).slice().sort().slice(-maxDays);
             const snapshots = await Promise.all(
                 dates.map(date => fetchJson(`${snapshotUrl(date)}?${cacheBuster}`).catch(() => null))
@@ -40,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function snapshotUrl(date) {
-        return `data/fanqie_male_new_ranks_${date.replace(/-/g, '')}.json`;
+        return `${datasetConfig.snapshot_dir}/${datasetConfig.snapshot_prefix}${date.replace(/-/g, '')}.json`;
     }
 
     function fetchJson(url) {

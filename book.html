@@ -11,6 +11,10 @@
     <main class="book-shell">
         <header class="book-topbar">
             <a href="index.html" class="back-link">返回榜单</a>
+            <div class="dataset-switcher" id="dataset-switcher" aria-label="榜单数据集">
+                <button type="button" data-dataset="male">男频</button>
+                <button type="button" data-dataset="female">女频</button>
+            </div>
             <a href="shorts.html" class="shorts-link-btn">短篇推荐</a>
             <a href="trend.html" class="trend-link-btn">风向标</a>
         </header>
@@ -20,6 +24,7 @@
         </section>
     </main>
 
+    <script src="js/datasets.js"></script>
     <script src="js/book.js"></script>
 </body>
 </html>

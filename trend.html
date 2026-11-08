@@ -12,10 +12,15 @@
         <header class="trend-topbar">
             <div>
                 <a href="index.html" class="back-link">返回榜单</a>
+                <a href="shorts.html" class="shorts-link-btn">短篇推荐</a>
                 <h1>类型风向标</h1>
                 <p id="trend-subtitle">加载中...</p>
             </div>
             <div class="trend-controls">
+                <div class="dataset-switcher" id="dataset-switcher" aria-label="榜单数据集">
+                    <button type="button" data-dataset="male">男频</button>
+                    <button type="button" data-dataset="female">女频</button>
+                </div>
                 <div class="trend-range" id="trend-range">
                     <button class="range-btn active" data-days="7">7日</button>
                     <button class="range-btn" data-days="14">14日</button>
@@ -80,6 +85,7 @@
         </main>
     </div>
 
+    <script src="js/datasets.js"></script>
     <script src="js/trend.js"></script>
 </body>
 </html>
